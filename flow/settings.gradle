@@ -1,0 +1,11 @@
+
+pluginManagement {
+    repositories {
+    }
+}
+
+rootProject.name = "flow"
+include 'apps:backend:server'
+include 'apps:backend:tools:liquibase'
+include 'apps:backend:commons'
+

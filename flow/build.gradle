@@ -1,0 +1,72 @@
+plugins {
+    id "base"
+    id "idea"
+    alias(libs.plugins.ben)
+}
+
+description = "The flexible configurable ticket management"
+
+assert System.properties["java.specification.version"] == "21" || "22" || "23"
+
+allprojects {
+    group = 'flow'
+    version = project.findProperty('version')
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url 'https://repo.spring.io/milestone' }
+    }
+
+    subprojects {
+
+        afterEvaluate { project ->
+            if (project.plugins.hasPlugin('java') || project.plugins.hasPlugin('java-library')) {
+                project.java {
+                    sourceCompatibility = 21
+                    targetCompatibility = 21
+                }
+                tasks.withType(JavaCompile) {
+                    options.compilerArgs << "-parameters"
+                }
+            }
+
+            if (project.plugins.hasPlugin('java-library')) {
+                project.apply(plugin: 'maven-publish')
+
+                // Check if sourcesJar task already exists before creating it
+                if (!project.tasks.names.contains('sourcesJar')) {
+                    project.tasks.register('sourcesJar', Jar) {
+                        archiveClassifier.set('sources') // Classify the JAR as 'sources'
+                        from project.sourceSets.main.allSource // Include all source files
+                    }
+                }
+
+                project.afterEvaluate {
+
+                    publishing {
+                        publications {
+                            if (!project.publishing.publications.names.contains("${project.name}MavenJava")) {
+                                create("${project.name}MavenJava", MavenPublication) {
+                                    from project.components.java
+
+                                    // Reference the sourcesJar task
+                                    artifact(tasks.named('sourcesJar'))
+                                }
+                            }
+                        }
+                        repositories {
+                            maven {
+                                name = "GitHubPackages"
+                                credentials {
+                                    username = System.getenv("GITHUB_ACTOR")
+                                    password = System.getenv("GITHUB_TOKEN") 
+                                }
+                            }
+                            mavenLocal()
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
