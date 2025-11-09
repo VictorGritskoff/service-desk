@@ -1,0 +1,157 @@
+plugins {
+    id "java"
+    id "idea"
+    alias(libs.plugins.spring.boot)
+    alias(libs.plugins.spring.dependency.management)
+    id "flow.docker-conventions"
+    id "jacoco"
+}
+
+description = ""
+
+ext {
+    springProfiles = ""
+}
+
+
+
+if (project.hasProperty("prod")) {
+    apply from: "../../../gradle/profile_prod.gradle"
+} else {
+    apply from: "../../../gradle/profile_dev.gradle"
+}
+
+defaultTasks "bootRun"
+
+springBoot {
+    mainClass = "io.flow.FlowApp"
+}
+
+test {
+    useJUnitPlatform()
+    exclude "**/*IT*", "**/*IntTest*"
+    testLogging {
+        events 'FAILED', 'SKIPPED'
+    }
+    jvmArgs += '-Djava.security.egd=file:/dev/./urandom -Xmx512m'
+    reports.html.required = false
+    testLogging.exceptionFormat "full"
+}
+
+check.dependsOn integrationTest
+task testReport(type: TestReport) {
+    destinationDirectory = file("$buildDir/reports/tests")
+    testResults.from(test)
+}
+
+task integrationTestReport(type: TestReport) {
+    destinationDirectory = file("$buildDir/reports/tests")
+    testResults.from(integrationTest)
+}
+
+// JaCoCo configuration
+jacoco {
+    toolVersion = "0.8.11"
+}
+
+// Configure JaCoCo for the test task
+test {
+    jacoco {
+        destinationFile = file("${buildDir}/jacoco/test.exec")
+    }
+    finalizedBy jacocoTestReport
+}
+
+// Configure JaCoCo for the integrationTest task
+// This is defined in profile_dev.gradle
+tasks.register('jacocoIntegrationTestReport', JacocoReport) {
+    dependsOn integrationTest
+
+    executionData.from = files("${buildDir}/jacoco/integrationTest.exec")
+
+    sourceDirectories.from = files(
+        project.sourceSets.main.java.srcDirs,
+        project(":apps:backend:commons").sourceSets.main.java.srcDirs
+    )
+
+    classDirectories.from = files(
+        project.sourceSets.main.output.classesDirs,
+        project(":apps:backend:commons").sourceSets.main.output.classesDirs
+    )
+
+    reports {
+        xml {
+            required = true
+            destination = file("${buildDir}/reports/jacoco/jacocoIntegrationTestReport/jacocoIntegrationTestReport.xml")
+        }
+        html {
+            required = true
+            destination = file("${buildDir}/reports/jacoco/jacocoIntegrationTestReport")
+        }
+        csv.required = false
+    }
+
+    // No need to finalize with another report as jacocoTestReport will handle both test types
+}
+
+// Configure the main JaCoCo report task to include both test and integrationTest data
+jacocoTestReport {
+    dependsOn test, integrationTest
+
+    // Include both test and integration test execution data
+    executionData files("${buildDir}/jacoco/test.exec", "${buildDir}/jacoco/integrationTest.exec")
+
+    sourceDirectories.from = files(
+        project.sourceSets.main.java.srcDirs,
+        project(":apps:backend:commons").sourceSets.main.java.srcDirs
+    )
+
+    classDirectories.from = files(
+        project.sourceSets.main.output.classesDirs,
+        project(":apps:backend:commons").sourceSets.main.output.classesDirs
+    )
+
+    reports {
+        xml {
+            required = true
+            destination = file("${buildDir}/reports/jacoco/test/jacocoTestReport.xml")
+        }
+        html {
+            required = true
+            destination = file("${buildDir}/reports/jacoco/test")
+        }
+        csv.required = false
+    }
+}
+
+// The jacocoCombinedReport task has been removed as jacocoTestReport now handles both test and integrationTest
+
+// Make the check task depend on the jacocoTestReport task
+check.dependsOn jacocoTestReport
+
+configurations {
+    providedRuntime
+    implementation.exclude module: "spring-boot-starter-tomcat"
+}
+
+dependencies {
+    implementation( project(":apps:backend:commons"))
+
+    testImplementation(libs.greenmail.junit5)
+    testImplementation("org.testcontainers:jdbc")
+    testImplementation("org.testcontainers:junit-jupiter")
+    testImplementation("org.testcontainers:testcontainers")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.boot:spring-boot-test")
+    testImplementation("org.springframework.security:spring-security-test")
+    testImplementation(libs.assertJ)
+    testImplementation(libs.testcontainers.spring)
+    testImplementation(libs.testcontainers.postgresql)
+}
+
+task cleanResources(type: Delete) {
+    delete "build/resources"
+}
+
+compileJava.dependsOn processResources
+processResources.dependsOn bootBuildInfo
