@@ -1,0 +1,30 @@
+package io.flow.modules.teams.service.listener;
+
+import io.flow.modules.teams.service.TeamService;
+import io.flow.modules.teams.service.dto.TeamDTO;
+import io.flow.modules.usermanagement.service.event.DeleteUserEvent;
+import java.util.List;
+import org.springframework.context.event.EventListener;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+@Component
+public class DeleteUserEventListener {
+
+    private final TeamService teamService;
+
+    public DeleteUserEventListener(TeamService teamService) {
+        this.teamService = teamService;
+    }
+
+    @Async("asyncTaskExecutor")
+    @Transactional
+    @EventListener
+    public void onDeleteUserEvent(DeleteUserEvent event) {
+        List<TeamDTO> teams = teamService.findAllTeamsByUserId(event.getUserId());
+        for (TeamDTO team : teams) {
+            teamService.removeUserFromTeam(event.getUserId(), team.getId());
+        }
+    }
+}
