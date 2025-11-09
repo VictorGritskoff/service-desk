@@ -1,0 +1,90 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    alias(libs.plugins.spring.dependency.management)
+}
+
+group = 'io.flow'
+
+repositories {
+    mavenCentral()
+
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.boot:spring-boot-dependencies:${libs.versions.springbootVersion.get()}"
+    }
+}
+
+dependencies {
+    compileOnly(libs.lombok)
+    api(libs.bundles.slack)
+    api(libs.bundles.caffeine.cache)
+    api(libs.bundles.json)
+    api(libs.bundles.shedlock)
+    api(libs.bundles.spring.ai)
+    api(libs.bundles.springdoc.openapi)
+    api(libs.hypersistence)
+    api(libs.redis.hibernate)
+    api(libs.dot.env)
+    api(libs.j2html)
+    api(libs.postgres)
+    api(libs.jhipster.framework)
+    api project(":apps:backend:tools:liquibase")
+
+
+    api("com.fasterxml.jackson.module:jackson-module-jaxb-annotations")
+    api("com.fasterxml.jackson.datatype:jackson-datatype-hppc")
+    api("com.fasterxml.jackson.datatype:jackson-datatype-hibernate6")
+    api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+    api("com.zaxxer:HikariCP")
+    api("jakarta.annotation:jakarta.annotation-api")
+    api("org.apache.commons:commons-lang3")
+    api("org.hibernate.orm:hibernate-core")
+    api("org.hibernate.orm:hibernate-jcache")
+    api("org.hibernate.validator:hibernate-validator")
+    api("org.springframework.boot:spring-boot-starter-actuator")
+    api("org.springframework.boot:spring-boot-starter-aop")
+    api("org.springframework.boot:spring-boot-starter-data-jpa")
+    api("org.springframework.boot:spring-boot-loader-tools")
+    api("org.springframework.boot:spring-boot-starter-cache")
+    api("org.springframework.boot:spring-boot-starter-logging")
+    api("org.springframework.boot:spring-boot-starter-mail")
+    api("org.springframework.boot:spring-boot-starter-oauth2-client")
+    api("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
+    api("org.springframework.boot:spring-boot-starter-security")
+    api("org.springframework.boot:spring-boot-starter-thymeleaf")
+    api("org.springframework.boot:spring-boot-starter-undertow")
+    api("org.springframework.boot:spring-boot-starter-websocket")
+
+    modules {
+        module("org.springframework.boot:spring-boot-starter-tomcat") {
+            replacedBy("org.springframework.boot:spring-boot-starter-undertow", "Use Undertow instead of Tomcat")
+        }
+    }
+    api("org.springframework.boot:spring-boot-starter-validation")
+    api("org.springframework.boot:spring-boot-starter-web")
+    api("org.springframework.security:spring-security-data")
+    api("org.springframework.security:spring-security-messaging")
+
+
+    testImplementation platform(libs.junit.bom.platform)
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation(libs.assertJ)
+
+    testCompileOnly(libs.lombok)
+    testAnnotationProcessor(libs.lombok)
+
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+    annotationProcessor("org.hibernate.orm:hibernate-jpamodelgen")
+    annotationProcessor("org.glassfish.jaxb:jaxb-runtime")
+    annotationProcessor(libs.lombok)
+    // Keep mapstruct dependency below the lombok
+    api(libs.mapstruct)
+    annotationProcessor(libs.mapstruct.processor)
+}
+
+test {
+    useJUnitPlatform()
+}
