@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+	<property name="now" value="current_timestamp"
+		dbms="postgresql" />
+	<property name="floatType" value="float4" dbms="postgresql" />
+	<property name="clobType" value="clob" dbms="postgresql" />
+	<property name="blobType" value="blob" dbms="postgresql" />
+	<property name="uuidType" value="uuid" dbms="postgresql" />
+	<property name="datetimeType" value="datetime"
+		dbms="postgresql" />
+
+	<include
+		file="config/liquibase/tenant/changelog/000_initial_schema.xml" />
+	<include
+		file="config/liquibase/tenant/changelog/001_request_workflow_tables.xml" />
+	<include
+		file="config/liquibase/tenant/changelog/002_00_rename_team_request_to_ticket_table.xml" />
+	<include
+		file="config/liquibase/tenant/changelog/003_create_tenant_table.xml" />
+
+	<include
+		file="config/liquibase/tenant/changelog/shared-data-changelog.xml" />
+	<include
+		file="config/liquibase/tenant/changelog/dev-data-changelog.xml"
+		context="dev" />
+	<include
+		file="config/liquibase/tenant/changelog/test-data-changelog.xml"
+		context="test" />
+</databaseChangeLog>
