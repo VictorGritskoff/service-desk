@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+
+	<!-- Register the custom masking converter -->
+	<conversionRule conversionWord="mask"
+		converterClass="io.flow.logback.MaskingMessageConverter" />
+
+	<!-- Patterns based on https://github.com/spring-projects/spring-boot/blob/v3.0.0/spring-boot-project/spring-boot/src/main/resources/org/springframework/boot/logging/logback/defaults.xml -->
+	<property name="CONSOLE_LOG_PATTERN"
+		value="${CONSOLE_LOG_PATTERN:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd'T'HH:mm:ss.SSSXXX}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%logger{}.%method:%line){cyan} %clr(:){faint} %clr(%replace(%m){'[\r\n]', ''}){red} %n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}" />
+
+	<!-- Console Appender for standard logging -->
+	<appender name="CONSOLE"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${CONSOLE_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<!-- File appender with masking for error and custom logs only -->
+	<!-- <appender name="MASKED_FILE" -->
+	<!-- class="ch.qos.logback.core.FileAppender"> -->
+	<!-- <file>./logs/masked-log.log</file> -->
+	<!-- <encoder> -->
+	<!-- <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - -->
+	<!-- %mask{%msg}%n</pattern> -->
+	<!-- </encoder> -->
+
+	<!-- &lt;!&ndash; Filter to include only ERROR level logs &ndash;&gt; -->
+	<!-- <filter class="ch.qos.logback.classic.filter.LevelFilter"> -->
+	<!-- <level>ERROR</level> -->
+	<!-- <onMatch>ACCEPT</onMatch> -->
+	<!-- <onMismatch>DENY</onMismatch> -->
+	<!-- </filter> -->
+	<!-- </appender> -->
+
+	<include
+		resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<include
+		resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+
+
+	<root>
+		<level value="${log.level:INFO}" />
+		<appender-ref ref="CONSOLE" />
+		<!-- <appender-ref ref="MASKED_FILE" /> -->
+	</root>
+
+</configuration>
