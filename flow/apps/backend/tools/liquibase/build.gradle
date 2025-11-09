@@ -1,0 +1,18 @@
+plugins {
+    id 'java-library'
+    id "flow.code-conventions"
+}
+
+group = 'io.flow'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api(libs.liquibase)
+}
+
+test {
+    useJUnitPlatform()
+}
