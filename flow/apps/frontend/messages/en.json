@@ -1,0 +1,608 @@
+{
+  "locale_switcher": {
+    "fr": "French",
+    "en": "English",
+    "label": "EN"
+  },
+  "common": {
+    "buttons": {
+      "create": "Create",
+      "creating": "Creating ...",
+      "clear": "Clear",
+      "submit": "Submit",
+      "submitting": "Submitting ...",
+      "cancel": "Cancel",
+      "previous": "Previous",
+      "next": "Next",
+      "edit": "Edit",
+      "delete": "Delete",
+      "add": "Add",
+      "discard": "Discard",
+      "close": "Close",
+      "update": "Update",
+      "invite": "Invite",
+      "save": "Save",
+      "saving": "Saving ...",
+      "remove": "Remove",
+      "new": "New",
+      "go_back": "Go back",
+      "loading": "Loading...",
+      "add_comment": "Add comment",
+      "download": "Download",
+      "save_changes": "Save changes",
+      "saving_changes": "Saving changes ...",
+      "clear_filters": "Clear Filters"
+    },
+    "misc": {
+      "error": "Error",
+      "no_results_found": "No results found",
+      "no_data_available": "No data available",
+      "loading_data": "Loading data ...",
+      "fail_to_load_data": "Oops! We couldn’t load the data. Try refreshing the page",
+      "zoom_in": "Zoom In",
+      "zoom_out": "Zoom Out",
+      "switch_to_light_mode": "Switch to light mode",
+      "switch_to_dark_mode": "Switch to dark mode",
+      "date_select_place_holder": "Select a date",
+      "comments": "Comments",
+      "add_comment": "Add a comment",
+      "no_comments": "No comments available",
+      "attachment_place_holder": "Click or Drag to upload",
+      "attachment_file_name": "File name",
+      "attachment_type": "Type",
+      "attachment_size": "Size",
+      "none": "None",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "navigation": {
+      "dashboard": "Dashboard",
+      "teams": "Teams",
+      "settings": "Settings",
+      "users": "Users",
+      "authorities": "Authorities",
+      "workflows": "Workflows",
+      "projects": "Projects",
+      "tickets": "Tickets",
+      "profile": "Profile",
+      "members": "Members",
+      "organizations": "Organizations",
+      "mail": "Mail",
+      "my_tickets": "My tickets"
+    },
+    "permission": {
+      "ACCESS": "Access",
+      "WRITE": "Write",
+      "READ": "Read",
+      "NONE": "None"
+    },
+    "upload": {
+      "can_not_upload_more_than_1_file_desc": "Cannot upload more than 1 file at a time",
+      "file_upload_limit_error": "Cannot upload more than {maxFileCount} files",
+      "file_rejected_error": "File {fileName} was rejected",
+      "toast_uploading_description": "Please wait while the upload completes",
+      "toast_upload_success": "Upload successful",
+      "remove_file": "Remove file",
+      "drop_file_place_holder": "Drop the files here"
+    }
+  },
+  "header": {
+    "notifications": {
+      "no_data": "You're all caught up!",
+      "clear_all": "Clear all"
+    },
+    "my_tickets": {
+      "title": "My tickets",
+      "reported_tickets": "My reported tickets",
+      "assigned_tickets": "My assigned tickets"
+    },
+    "nav": {
+      "profile": "Profile",
+      "user_guide": "User guides",
+      "about": "About",
+      "logout": "Logout",
+      "intro": "FlowInquiry is a powerful request management solution for teams. It empowers organizations to track, manage, and customize customer inquiries through flexible workflows, enhancing collaboration and productivity.",
+      "copyright": "All rights reserved"
+    }
+  },
+  "dashboard": {
+    "recent_activities": {
+      "title": "Recent Activities",
+      "no_data": "No activity logs available"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "no_data": "No notifications available",
+      "mark_as_read": "Mark as Read"
+    },
+    "un_resolved_tickets_by_teams": {
+      "title": "Unresolved Tickets by Team",
+      "no_data": "No data available to display."
+    },
+    "overdue_tickets": {
+      "title": "Overdue Tickets ({totalTickets})",
+      "no_data": "No overdue tickets available",
+      "priority_asc": "Sort by priority: Ascending",
+      "priority_desc": "Sort by priority: Descending"
+    }
+  },
+  "teams": {
+    "common": {
+      "default_slogan": "Stronger Together",
+      "role": "Role",
+      "project": "Project",
+      "team": "Team",
+      "modified_at": "Modified at",
+      "assigned_to": "Assigned to",
+      "priority_sort_ascending": "Sort by priority: Ascending",
+      "priority_sort_descending": "Sort by priority: Descending",
+      "upload_team_logo": "Upload team logo"
+    },
+    "roles": {
+      "manager": "Manager",
+      "member": "Member",
+      "guest": "Guest",
+      "none": "None"
+    },
+    "form": {
+      "name": "Name",
+      "slogan": "Slogan",
+      "description": "Description",
+      "create_team_title": "Create team",
+      "create_team_description": "Add a new team",
+      "edit_team_title": "Edit team {teamName}",
+      "edit_team_description": "Edit team"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "description": "Overview of your team's performance and activities. Monitor team tickets, progress, and key metrics at a glance",
+      "edit_team": "Edit Team",
+      "last_7_days": "Last 7 Days",
+      "last_30_days": "Last 30 Days",
+      "last_90_days": "Last 90 Days",
+      "custom_range": "Custom Range",
+      "add_user_dialog": {
+        "title1": "This team requires at least one manager",
+        "description1": "This team currently has no managers. You must assign at least one manager before proceeding. Begin typing to search for users.",
+        "title2": "Add a user to team {teamName}",
+        "description2": "Add a user to this team by searching for them. Begin typing to see suggestions that match your input.",
+        "users": "Users",
+        "user_select_place_holder": "Add user to team..."
+      },
+      "summary": {
+        "total": {
+          "title": "Total Tickets",
+          "description": "All tickets received",
+          "tooltip": "View all team tickets."
+        },
+        "pending": {
+          "title": "Pending Tickets",
+          "description": "Tickets yet to be addressed",
+          "tooltip": "View tickets that are still pending."
+        },
+        "completed": {
+          "title": "Completed Tickets",
+          "description": "Successfully resolved tickets",
+          "tooltip": "View tickets that have been resolved."
+        },
+        "overdue": {
+          "title": "Overdue Tickets",
+          "description": "Tickets past their deadline",
+          "tooltip": "View overdue tickets that need attention."
+        }
+      },
+      "tickets_times_series": {
+        "title": "Daily Ticket Trends (Created & Closed)",
+        "no_data": "No ticket data available.",
+        "created_tickets": "Created Tickets",
+        "closed_tickets": "Closed Tickets"
+      },
+      "recent_activities": {
+        "title": "Recent Activities",
+        "no_data": "No activity logs available"
+      },
+      "unassigned_tickets": {
+        "title": "Unassigned Tickets ({totalTickets})",
+        "no_data": "No unassigned tickets available"
+      },
+      "priority_tickets_distribution": {
+        "title": "Ticket Priority Distribution"
+      },
+      "assigned_tickets_per_user": {
+        "title": "Tickets Assigned per User"
+      },
+      "overdue_tickets": {
+        "title": "Overdue Tickets ({totalTickets})",
+        "no_data": "No overdue tickets found"
+      }
+    },
+    "list": {
+      "title": "Teams ({totalElements})",
+      "description": "Manage teams",
+      "search_place_holder": "Search teams ...",
+      "sort_a_z": "Sort by name: A → Z",
+      "sort_z_a": "Sort by name: Z → A",
+      "my_teams_only": "My Teams Only",
+      "new_team": "New team"
+    },
+    "tickets": {
+      "list": {
+        "title": "Tickets ({count})",
+        "description": "Monitor and handle your team's tickets. Stay on top of assignments and progress.",
+        "no_workflow_available": "No workflow is available for team.",
+        "create_workflow_cta": "You can create a new workflow at <button><link>here</link></button>.",
+        "contact_manager_to_create_workflow": "Contact the team manager to create a new workflow.",
+        "no_ticket_title": "Ticket does not exist.",
+        "no_ticket_description": "There are currently no ticket available. Please check again later or adjust your search criteria.",
+        "search_place_holder": "Search ticket title, description...",
+        "filters": "Filters",
+        "sort": "Sort",
+        "newest_first": "Newest first",
+        "oldest_first": "Oldest first"
+      },
+      "detail": {
+        "next_ticket": "Next ticket",
+        "previous_ticket": "Previous ticket",
+        "ticket_not_found_title": "Ticket not found",
+        "ticket_not_found_description": "The requested ticket could not be found.",
+        "edit_ticket": "Edit ticket",
+        "add_comment": "Add comment",
+        "change_status": "Change status",
+        "view_workflow": "View workflow",
+        "no_available_states": "No available states",
+        "people": "People",
+        "unassigned": "Unassigned",
+        "ticker_detail": "Ticket details",
+        "important_dates": "Important Dates",
+        "date_time": "Dates & Time",
+        "not_set": "Not set",
+        "not_completed": "Not completed",
+        "attachments": "Attachments",
+        "watchers": "Watchers",
+        "comments": "Comments",
+        "changes_history": "Changes history",
+        "timeline": "Timeline",
+        "click_to_edit": "Click to edit",
+        "people_assignment": "People and Assignment",
+        "state_priority": "State and Priority"
+      },
+      "timeline": {
+        "no_data": "No transitions found for this ticket.",
+        "sla_due": "SLA Due",
+        "sla_deadline": "SLA Deadline"
+      },
+      "new_dialog": {
+        "title": "Create a new ticket",
+        "description": "Submit a ticket to the team to get assistance or initiate a task. Provide all necessary details to help the team understand and address your request effectively."
+      },
+      "form": {
+        "edit_ticket_title": "Edit ticket",
+        "edit_ticket_description": "Edit the details of your ticket",
+        "name": "Name",
+        "description": "Description",
+        "priority": "Priority",
+        "requester": "Requester",
+        "assignee": "Assignee",
+        "user_select_place_holder": "Search user...",
+        "user_select_no_data": "No user found.",
+        "user_select_no_choose": "None (Unassign User)",
+        "user_select_unassigned": "Unassigned",
+        "created_at": "Created time",
+        "last_modified_at": "Last modified time",
+        "target_completion_date": "Target completion date",
+        "actual_completion_date": "Actual completion date",
+        "state": "State",
+        "channel": "Channel",
+        "type": "Type",
+        "channel_place_holder": "Select a channel",
+        "project": "Project",
+        "iteration": "Iteration",
+        "epic": "Epic",
+        "channels": {
+          "email": "Email",
+          "phone": "Phone",
+          "web_portal": "Web Portal",
+          "chat": "Chat",
+          "social_media": "Social Media",
+          "in_person": "In Person",
+          "mobile_app": "Mobile App",
+          "api": "API",
+          "system_generated": "System Generated",
+          "internal": "Internal"
+        },
+        "priorities": {
+          "Critical": "Critical",
+          "High": "High",
+          "Medium": "Medium",
+          "Low": "Low",
+          "Trivial": "Trivial"
+        }
+      }
+    },
+    "users": {
+      "title": "Members ({count})",
+      "description": "Browse and manage the members of your team. View roles, contact information, and more",
+      "add_user": "Add User",
+      "remove_user": "Remove User",
+      "remove_user_from_team": "This action will remove user <b>{firstName} {lastName}</b> from team <b>{teamName}</b>.",
+      "remove_only_manager_dialog_error_title": "Manager Role Require",
+      "remove_only_manager_dialog_error_description": "You cannot remove the only Manager from the team"
+    },
+    "projects": {
+      "list": {
+        "title": "Projects ({totalElements})",
+        "description": "Manage and track your team's projects efficiently",
+        "search_place_holder": "Search projects...",
+        "new_project": "New project",
+        "no_projects_found": "No projects found",
+        "close_project": "Close project",
+        "reopen_project": "Reopen project",
+        "delete_project_dialog_title": "Confirm project deletion",
+        "delete_project_dialog_confirmation": "Are you sure you want to delete the project \"{projectName}\"? This action cannot be undone.",
+        "kanban": "Kanban Board",
+        "settings": "Settings",
+        "flat_view": "Flat View",
+        "group_by_team": "Group by Team"
+      },
+      "form": {
+        "name": "Name",
+        "description": "Description",
+        "status": "Status",
+        "short_name": "Short name",
+        "short_name_placeholder": "Enter short name",
+        "short_name_tooltip": "Short name used for project URLs and ticket references. Must be unique, short (1–10 characters), and easy to remember.\nExample: /projects/crm/tickets/42",
+        "start_date": "Start date",
+        "end_date": "End date",
+        "created_at": "Created at"
+      },
+      "iteration": {
+        "create_dialog_title": "Create new iteration",
+        "create_dialog_description": "Add a new iteration to organize your tasks into sprints or phases",
+        "edit_dialog_title": "Edit iteration",
+        "edit_dialog_description": "Update the details of this iteration",
+        "no_data": "No iterations found for this project",
+        "select_place_holder": "Select an iteration",
+        "form": {
+          "name": "Name",
+          "name_place_holder": "Sprint 1",
+          "start_date": "Start date",
+          "end_date": "End date",
+          "description": "Description",
+          "description_place_holder": "Brief description of this iteration's goals",
+          "create_iteration": "Create iteration"
+        }
+      },
+      "epic": {
+        "create_dialog_title": "Create new epic",
+        "create_dialog_description": "Add a new epic to organize related features or large pieces of work",
+        "edit_dialog_title": "Edit epic",
+        "edit_dialog_description": "Update the details of this epic",
+        "no_data": "No epics found for this project",
+        "select_place_holder": "Select an epic",
+        "form": {
+          "name": "Name",
+          "name_place_holder": "User Authentication",
+          "start_date": "Start date",
+          "end_date": "End date",
+          "description": "Description",
+          "description_place_holder": "Describe the scope and goals of this epic",
+          "create_epic": "Create epic"
+        }
+      },
+      "view": {
+        "add_new_task_to_state": "Add new task to {stateName}",
+        "new_task": "Add task",
+        "project_not_found": "Project not found",
+        "edit_project": "Edit project",
+        "duration": "Duration",
+        "iteration": "Iteration",
+        "all_iterations": "All Iterations",
+        "no_iterations_found": "No iterations found",
+        "edit_iteration": "Edit iteration",
+        "add_new_iteration": "Add new iteration",
+        "epic": "Epic",
+        "all_epics": "All Epics",
+        "no_epics_found": "No epics found",
+        "add_new_epic": "Add new epic",
+        "edit_epic": "Edit epic"
+      },
+      "new_dialog": {
+        "new_project": "New project",
+        "new_project_description": "Every great project starts with a first step. Let's begin!",
+        "edit_project": "Edit project",
+        "edit_project_description": "Modify the project details"
+      },
+      "settings": {
+        "title": "Project Settings",
+        "sprint_length": "Sprint Length (Days)",
+        "sprint_length_description": "The default length of sprints in days",
+        "default_priority": "Default Priority",
+        "default_priority_description": "The default priority for new tickets",
+        "estimation_unit": "Estimation Unit",
+        "estimation_unit_description": "The unit used for estimating work",
+        "story_points": "Story Points",
+        "days": "Days",
+        "enable_estimation": "Enable Estimation",
+        "enable_estimation_description": "Allow estimation of tickets in this project"
+      }
+    }
+  },
+  "users": {
+    "list": {
+      "title": "Users ({totalElements})",
+      "description": "Manage users",
+      "search_place_holder": "Search user names ...",
+      "sort_a_z": "Sort by name: A → Z",
+      "sort_z_a": "Sort by name: Z → A",
+      "invite_user": "Invite user",
+      "delete_dialog_title": "Confirm Deletion",
+      "delete_confirmation": "Are you sure you want to delete <strong>{name}</strong>? This action cannot be undone.",
+      "activation_email_sent": "An activation email has been sent to {email}",
+      "resend_activation_email": "Resend Activation Email"
+    },
+    "detail": {},
+    "common": {
+      "org_chart": "Org chart",
+      "no_recent_login": "No recent login",
+      "not_activated": "Not activated"
+    },
+    "form": {
+      "title": "Title",
+      "email": "Email",
+      "last_login_time": "Last login time",
+      "timezone": "Timezone",
+      "about": "About",
+      "address": "Address",
+      "city": "City",
+      "state": "State",
+      "country": "Country",
+      "report_to": "Report to",
+      "direct_reports": "Direct Reports",
+      "member_of_teams": "Member of Teams",
+      "authorities": "Authorities",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "updating": "Updating ...",
+      "inviting": "Inviting ...",
+      "create_user": "Create User",
+      "edit_user": "Edit User {firstName} {lastName}"
+    },
+    "profile": {
+      "title": "Profile",
+      "description": "Manage your account details here. Update your email, profile picture, password, and other personal information to keep your profile accurate and secure.",
+      "change_password": "Change Password",
+      "current_password": "Current Password",
+      "new_password": "New Password",
+      "save_success": "Save profile successfully"
+    },
+    "org_chart_view": {
+      "instruction_title": "How to use the org chart",
+      "instruction_desc1": "Drag the entire org chart to adjust your view.",
+      "instruction_desc2": "Click a user icon to view the org chart from that user.",
+      "instruction_desc3": "Click a user link to navigate to the user's profile page."
+    }
+  },
+  "authorities": {
+    "common": {
+      "select_place_holder": "Select authorities",
+      "no_data": "Cannot load authorities",
+      "system_role": "System Role"
+    },
+    "list": {
+      "title": "Authorities ({totalElements})",
+      "description": "Manage permissions for groups and users to control access to resources.",
+      "new_authority": "New Authority",
+      "remove_authority": "Remove Authority",
+      "remove_authority_tooltip": "This action will delete the role and unassign all users from this role.",
+      "remove_dialog_title": "Confirm Deletion",
+      "remove_dialog_content": "Are you sure you want to delete <strong>{name}</strong>? This action cannot be undone."
+    },
+    "detail": {
+      "add_user": "Add User",
+      "remove_user": "Remove User",
+      "remove_user_tooltip": "This action will revoke the selected user’s access and permissions associated with this authority",
+      "permissions_title": "Resource Permissions",
+      "resource": "Resource",
+      "permission": "Permission",
+      "no_permission": "No permissions available",
+      "no_users": "No users have been assigned to this authority yet. Please add users to this authority to manage permissions."
+    },
+    "add": {
+      "dialog_title": "Add user to authority {authorityName}",
+      "dialog_description": "Add a user to this authority group by searching for them. Begin typing to see suggestions that match your input",
+      "users": "Users",
+      "users_select_place_holder": "Add user to authority..."
+    },
+    "form": {
+      "title": "Authority Details",
+      "permissions_section": "Resource Permissions",
+      "permission_select_place_holder": "Select permission",
+      "name": "Name",
+      "description": "Description"
+    }
+  },
+  "mail": {
+    "title": "Mail",
+    "description": "Use this form to configure SMTP server credentials and email delivery options for FlowInquiry. These settings control how the system sends notifications such as password resets, workflow updates, and alerts. You can customize connection parameters (host, port, protocol), authentication credentials, sender identity, and advanced options like SSL/TLS and debug mode.",
+    "smtp_server": "SMTP Server",
+    "authentication": "Authentication",
+    "sender_info": "Sender Info",
+    "advanced_options": "Advanced Options",
+    "save_successfully": "Mail settings updated successfully"
+  },
+  "login": {
+    "form": {
+      "invalid_email": "Invalid email",
+      "required_email": "Email is required",
+      "required_password": "Password is required",
+      "login_failed_message": "Login failed. Please try again.",
+      "google_login_failed_message": "Google login failed. Please try again.",
+      "title": "Your Partner in Keeping Customers Happy and Tickets On Track",
+      "password": "Password",
+      "forgot_password_cta": "Forgot password",
+      "signin": "Sign in",
+      "signin_google": "Sign in with Google"
+    }
+  },
+  "workflows": {
+    "common": {
+      "state_select_place_holder": "Select a state",
+      "no_data": "No workflows found",
+      "select_workflow": "Select workflow",
+      "search_workflow": "Search workflow..."
+    },
+    "list": {
+      "title": "Workflows ({totalElements})",
+      "description": "Centralize and manage all workflows effortlessly with clear visibility, ticket types, and descriptions at a glance.",
+      "new_workflow": "New workflow",
+      "sort_a_z": "Sort workflow names A → Z",
+      "sort_z_a": "Sort workflow names Z → A",
+      "delete_workflow": "Delete workflow",
+      "delete_workflow_tooltip_1": "This action will remove workflow {workflowName} out of the team {teamName}"
+    },
+    "detail": {
+      "cancel_edit": "Cancel edit",
+      "customize_workflow": "Customize workflow",
+      "ticket_type_label": "Ticket type: {requestName}",
+      "error_loading": "Error loading workflow detail"
+    },
+    "add": {
+      "title": "Create new workflow",
+      "description": "Select how you want to create the workflow",
+      "transitions": "Transitions",
+      "add_transition": "Add transition",
+      "escalate": "Escalate",
+      "sla_duration": "SLA duration (hrs)",
+      "event_name": "Event name",
+      "source_state": "Source state",
+      "source_state_place_holder": "Select source state",
+      "target_state": "Target state",
+      "target_state_place_holder": "Select target state",
+      "add_state": "Add state",
+      "final": "Final",
+      "initial": "Initial",
+      "state_name": "State name",
+      "states": "States",
+      "name": "Name",
+      "ticket_type": "Ticket type",
+      "field_description": "Description",
+      "edit_workflow": "Edit workflow",
+      "no_global_workflow": "There are no global workflows available for selection",
+      "create_workflow_from_reference": "Create workflow from reference",
+      "create_workflow_by_cloning": "Create workflow by cloning",
+      "create_option": "Choose an option",
+      "create_workflow_from_scratch_title": "Create from scratch",
+      "create_workflow_from_scratch_description": "Start building a new workflow from the ground up",
+      "clone_workflow_title": "Clone from global workflow",
+      "clone_workflow_description": "Create a copy of a global workflow and customize it",
+      "select_workflow_place_holder": "Select a workflow",
+      "workflow_reference": "Workflow reference",
+      "create_workflow": "Create workflow"
+    }
+  },
+  "settings": {
+    "list": {
+      "description": "Configure and manage all system settings in one place to tailor the platform to your organization's needs."
+    }
+  }
+}
